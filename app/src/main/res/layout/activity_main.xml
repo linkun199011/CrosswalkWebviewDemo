@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    android:background="#55ffff00">
+
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:background="#660000ff"
+        />
+    <Button
+        android:id="@+id/btn_xwalk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="使用 XWalk-webview 访问该网址"
+        />
+
+    <Button
+        android:id="@+id/btn_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="使用 Android原生浏览器 访问该网址"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="备注:"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JS基准测试(Kraken):（时间越小越好）"
+        android:textColor="#ff0000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://krakenbenchmark.mozilla.org/kraken-1.1/driver.html"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JS基准测试(Octane):（得分越高越好）"
+        android:textColor="#ff0000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://octane-benchmark.googlecode.com/svn/latest/index.html"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="网站加载时间:（时间越小越好）"
+        android:textColor="#ff0000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://www.webkaka.com/webspeed/"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JS基本渲染(Javascript Raytracer):（加载时间越小越好）"
+        android:textColor="#ff0000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://jupiter909.com/mark/jsrt.html"
+        android:textColor="#000000"
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JS完全渲染(Javascript Raytracer):（加载时间越小越好）"
+        android:textColor="#ff0000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://fooo.fr/~vjeux/epita/raytracer/raytracer.html#portal"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HTML5 测试:（得分越高越好）"
+        android:textColor="#ff0000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://html5test.com/"
+        android:textColor="#000000"
+        />
+
+
+</LinearLayout>
