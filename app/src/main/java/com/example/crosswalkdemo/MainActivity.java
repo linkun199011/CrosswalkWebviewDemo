@@ -28,7 +28,8 @@ public class MainActivity extends Activity {
 
     private Spinner mSpinner;
     private Button mButtonXWalk;
-    private Button mButtonDefault;
+    private Button mButtonAny;
+    private Button mButtonWebView;
     private List<String> mDataList;
     private ArrayAdapter<String> mArrDapter;
 
@@ -55,9 +56,9 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-        // use Android default webview to access the website
-        mButtonDefault = (Button) findViewById(R.id.btn_default);
-        mButtonDefault.setOnClickListener(new View.OnClickListener() {
+        // use Android any browser to access the website
+        mButtonAny = (Button) findViewById(R.id.btn_any);
+        mButtonAny.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse(mUrl);
@@ -65,6 +66,19 @@ public class MainActivity extends Activity {
                 startActivity(it);
             }
         });
+        // use Android webview to access the website
+        mButtonWebView = (Button) findViewById(R.id.btn_webview);
+        mButtonWebView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("mUrl", mUrl);
+                Intent intent = new Intent(MainActivity.this, AndroidWebViewActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void init() {

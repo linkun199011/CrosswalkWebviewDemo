@@ -7,6 +7,7 @@
     android:background="#55ffff00">
 
 
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,11 +24,18 @@
         />
 
     <Button
-        android:id="@+id/btn_default"
+        android:id="@+id/btn_any"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="使用 Android原生浏览器 访问该网址"
+        android:text="使用 任意浏览器 访问该网址"
+        />
+    <Button
+        android:id="@+id/btn_webview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="使用 Android Webview 访问该网址"
         />
 
     <TextView
