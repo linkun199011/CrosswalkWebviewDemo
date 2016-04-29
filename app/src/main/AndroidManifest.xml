@@ -41,6 +41,11 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
+            android:name=".LoadLocalHtmlActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".js.WebJSActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

@@ -3,12 +3,9 @@ package com.example.crosswalkdemo;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.view.KeyEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ScrollView;
 
 /**
  * @author LinKun EmployeeID:151750
@@ -26,7 +23,7 @@ public class AndroidWebViewActivity extends Activity {
         Bundle bundle = getIntent().getExtras();
         mUrl = bundle.getString("mUrl");
         System.out.println(">>> URL is = " + mUrl);
-        mWebView = (WebView) findViewById(R.id.xwalkWebView);
+        mWebView = (WebView) findViewById(R.id.androidWebView);
         //支持javascript
         mWebView.getSettings().setJavaScriptEnabled(true);
         // 设置可以支持缩放
@@ -63,8 +60,6 @@ public class AndroidWebViewActivity extends Activity {
         });
 
         mWebView.loadUrl(mUrl);
-        ScrollView s;
-        LinearLayoutCompat l;
     }
 
 }

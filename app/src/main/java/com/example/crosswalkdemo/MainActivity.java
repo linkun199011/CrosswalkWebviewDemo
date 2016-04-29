@@ -43,6 +43,8 @@ public class MainActivity extends Activity {
     private Button mButtonX52;
     //Js test
     private Button mButtonX5Js;
+    //load local html
+    private Button mButtonLocal;
 
     private List<String> mDataList;
     private ArrayAdapter<String> mArrDapter;
@@ -159,6 +161,15 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WebJSActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mButtonLocal = (Button) findViewById(R.id.btn_webview_local);
+        mButtonLocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoadLocalHtmlActivity.class);
                 startActivity(intent);
             }
         });

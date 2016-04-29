@@ -13,6 +13,7 @@ import com.tencent.smtt.sdk.WebViewClient;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
+
 import android.webkit.JavascriptInterface;
 import android.widget.Button;
 import android.widget.Toast;
@@ -24,12 +25,11 @@ public class WebJSActivity extends Activity {
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.x5_js_test);
 
-        myWebView = (WebView) findViewById(R.id.myWebView);
+        myWebView = (WebView) findViewById(R.id.x5WebView);
 
         // 得到设置属性的对象
         WebSettings webSettings = myWebView.getSettings();
@@ -47,13 +47,11 @@ public class WebJSActivity extends Activity {
         // Sets the chrome handler. This is an implementation of WebChromeClient
         // for use in handling JavaScript dialogs, favicons, titles, and the
         // progress. This will replace the current handler.
-        myWebView.setWebChromeClient(new WebChromeClient()
-        {
+        myWebView.setWebChromeClient(new WebChromeClient() {
 
             @Override
             public boolean onJsAlert(WebView view, String url, String message,
-                                     JsResult result)
-            {
+                                     JsResult result) {
                 // TODO Auto-generated method stub
                 return super.onJsAlert(view, url, message, result);
             }
@@ -72,12 +70,10 @@ public class WebJSActivity extends Activity {
 
         // 这里用一个Android按钮按下后调用JS中的代码
         myButton = (Button) findViewById(R.id.button1);
-        myButton.setOnClickListener(new View.OnClickListener()
-        {
+        myButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 // 用Android代码调用JavaScript函数：
                 myWebView.loadUrl("javascript:myFunction()");
 
@@ -92,25 +88,24 @@ public class WebJSActivity extends Activity {
      * 自定义的Android代码和JavaScript代码之间的桥梁类
      *
      * @author 1
-     *
      */
-    public class WebAppInterface
-    {
+    public class WebAppInterface {
         Context mContext;
 
-        /** Instantiate the interface and set the context */
-        WebAppInterface(Context c)
-        {
+        /**
+         * Instantiate the interface and set the context
+         */
+        WebAppInterface(Context c) {
             mContext = c;
         }
 
-        /** Show a toast from the web page */
+        /**
+         * Show a toast from the web page
+         */
         // 如果target 大于等于API 17，则需要加上如下注解
         @JavascriptInterface
-        public void showToast(String toast)
-        {
+        public void showToast(String toast) {
             Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
         }
     }
-
 }
