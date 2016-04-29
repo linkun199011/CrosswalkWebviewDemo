@@ -23,7 +23,7 @@
         android:text="Android button" />
 
     <com.tencent.smtt.sdk.WebView
-        android:id="@+id/myWebView"
+        android:id="@+id/x5WebView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@id/button1" />
