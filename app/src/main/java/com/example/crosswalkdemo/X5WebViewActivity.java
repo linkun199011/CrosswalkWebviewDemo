@@ -3,30 +3,29 @@ package com.example.crosswalkdemo;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.KeyEvent;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ScrollView;
+
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
+
 
 /**
  * @author LinKun EmployeeID:151750
  * @email : linkun199011@163.com
- * @time : 2016/4/25 11:08
+ * @time : 2016/4/27 17:50
  */
-public class AndroidWebViewActivity extends Activity {
-
+public class X5WebViewActivity extends Activity {
     private WebView mWebView;
     private String mUrl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_android_webview);
+        setContentView(R.layout.x5_webview);
         Bundle bundle = getIntent().getExtras();
         mUrl = bundle.getString("mUrl");
         System.out.println(">>> URL is = " + mUrl);
-        mWebView = (WebView) findViewById(R.id.xwalkWebView);
+        mWebView = (WebView) findViewById(R.id.x5_webview);
         //支持javascript
         mWebView.getSettings().setJavaScriptEnabled(true);
         // 设置可以支持缩放
@@ -62,9 +61,28 @@ public class AndroidWebViewActivity extends Activity {
             }
         });
 
+
         mWebView.loadUrl(mUrl);
-        ScrollView s;
-        LinearLayoutCompat l;
     }
+
+    @Override
+    //设置回退
+    //覆盖Activity类的onKeyDown(int keyCoder,KeyEvent event)方法
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            if(mWebView.canGoBack()) {
+                mWebView.goBack(); //goBack()表示返回WebView的上一页面
+                System.out.println("goBack called!!!!!!!");
+                return true;
+            }
+            else { // 如果webview无可回退，则keycode_back交由系统处理
+                super.onKeyDown(keyCode, event);
+                System.out.println("system onKeyDown called!!!!!!!");
+                this.finish();
+            }
+        }
+        return false;
+    }
+
 
 }

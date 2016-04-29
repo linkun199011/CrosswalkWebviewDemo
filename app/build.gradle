@@ -29,7 +29,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
-
     //compile 'org.xwalk:xwalk_core_library:10.39.235.15'
     compile 'org.xwalk:xwalk_core_library:17.46.448.10'
+    compile files('libs/tbs_sdk_v1.5.1.1057_25436_obfs_20160331_144900.jar')
 }

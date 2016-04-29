@@ -8,7 +8,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.crosswalkdemo.js.WebJSActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +23,7 @@ import java.util.List;
  */
 public class MainActivity extends Activity {
     private String mUrl; // get the URL by selecting the specific spinner item.
+    private String mUrlAny; // get the URL by input the url into EditText
     private static final String URL0 = "http://krakenbenchmark.mozilla.org/kraken-1.1/driver.html";
     private static final String URL1 = "http://octane-benchmark.googlecode.com/svn/latest/index.html";
     private static final String URL2 = "http://www.webkaka.com/webspeed/";
@@ -30,6 +35,15 @@ public class MainActivity extends Activity {
     private Button mButtonXWalk;
     private Button mButtonAny;
     private Button mButtonWebView;
+    private Button mButtonX5;
+    private EditText mEditTextUrl;
+    private Button mButtonXWalk2;
+    private Button mButtonAny2;
+    private Button mButtonWebView2;
+    private Button mButtonX52;
+    //Js test
+    private Button mButtonX5Js;
+
     private List<String> mDataList;
     private ArrayAdapter<String> mArrDapter;
 
@@ -79,6 +93,76 @@ public class MainActivity extends Activity {
             }
         });
 
+        mButtonX5 = (Button) findViewById(R.id.btn_x5);
+        mButtonX5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("mUrl", mUrl);
+                Intent intent = new Intent(MainActivity.this, X5WebViewActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
+        mEditTextUrl = (EditText) findViewById(R.id.et_url);
+        mButtonXWalk2 = (Button) findViewById(R.id.btn_xwalk2);
+        mButtonXWalk2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUrlAny = mEditTextUrl.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("mUrl", mUrlAny);
+                Intent intent = new Intent(MainActivity.this, XWalkWebViewActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        mButtonAny2 = (Button) findViewById(R.id.btn_any2);
+        mButtonAny2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUrlAny = mEditTextUrl.getText().toString();
+                Uri uri = Uri.parse(mUrlAny);
+                Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(it);
+            }
+        });
+        mButtonWebView2 = (Button) findViewById(R.id.btn_webview2);
+        mButtonWebView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUrlAny = mEditTextUrl.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("mUrl", mUrlAny);
+                Intent intent = new Intent(MainActivity.this, AndroidWebViewActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        mButtonX52 = (Button) findViewById(R.id.btn_x5_2);
+        mButtonX52.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUrlAny = mEditTextUrl.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("mUrl", mUrlAny);
+                Intent intent = new Intent(MainActivity.this, X5WebViewActivity.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
+
+        mButtonX5Js = (Button) findViewById(R.id.btn_X5_Js);
+        mButtonX5Js.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebJSActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void init() {
@@ -92,7 +176,7 @@ public class MainActivity extends Activity {
         mDataList.add(URL5);
 
         //适配器
-        mArrDapter= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mDataList);
+        mArrDapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mDataList);
         //设置样式
         mArrDapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //加载适配器
