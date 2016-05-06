@@ -146,6 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            
             android:text="JS基准测试(Octane):（得分越高越好）"
             android:textColor="#ff0000" />
 
@@ -165,7 +166,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="http://www.webkaka.com/webspeed/"
+            android:text="file:///android_asset/youku.html"
             android:textColor="#000000" />
 
         <TextView

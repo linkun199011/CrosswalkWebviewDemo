@@ -3,8 +3,12 @@ package com.example.crosswalkdemo;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.KeyEvent;
 
+import com.tencent.smtt.sdk.QbSdk;
+import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
@@ -18,14 +22,28 @@ import com.tencent.smtt.sdk.WebViewClient;
 public class X5WebViewActivity extends Activity {
     private WebView mWebView;
     private String mUrl;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.x5_webview);
-        Bundle bundle = getIntent().getExtras();
-        mUrl = bundle.getString("mUrl");
-        System.out.println(">>> URL is = " + mUrl);
+    public static final int MSG_OPEN_TEST_URL = 0;
+    public static final int MSG_INIT_UI = 1;
+    private final int mUrlStartNum = 0;
+    private final int mUrlEndNum = 108;
+    private int mCurrentUrl = mUrlStartNum;
+    /* private class TestHandler extends */
+    private Handler mTestHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+
+                case MSG_INIT_UI:
+                    init();
+                    break;
+            }
+            super.handleMessage(msg);
+        }
+    };
+
+    private void init() {
         mWebView = (WebView) findViewById(R.id.x5_webview);
+
         //支持javascript
         mWebView.getSettings().setJavaScriptEnabled(true);
         // 设置可以支持缩放
@@ -60,9 +78,26 @@ public class X5WebViewActivity extends Activity {
                 // 出错
             }
         });
+        mWebView.setWebChromeClient(new WebChromeClient(){
 
+        });
 
         mWebView.loadUrl(mUrl);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.x5_webview);
+        Bundle bundle = getIntent().getExtras();
+        mUrl = bundle.getString("mUrl");
+        System.out.println(">>> URL is = " + mUrl);
+
+        // preloadX5Check -- call this before webview creation
+
+        QbSdk.preInit(this);
+        mTestHandler.sendEmptyMessageDelayed(MSG_INIT_UI, 10);//webview
+
     }
 
     @Override

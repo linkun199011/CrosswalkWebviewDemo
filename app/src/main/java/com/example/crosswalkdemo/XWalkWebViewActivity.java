@@ -24,6 +24,7 @@ public class XWalkWebViewActivity extends Activity {
         mUrl = bundle.getString("mUrl");
         System.out.println(">>> URL is = " + mUrl);
         xWalkWebView=(XWalkView)findViewById(R.id.xwalkWebView);
+
         xWalkWebView.load(mUrl, null);
 
         // turn on debugging

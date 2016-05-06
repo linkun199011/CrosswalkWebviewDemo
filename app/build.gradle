@@ -10,11 +10,19 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        ndk {
+            abiFilters"armeabi","armeabi-v7a","x86","mips"
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
     }
 }
@@ -32,4 +40,14 @@ dependencies {
     //compile 'org.xwalk:xwalk_core_library:10.39.235.15'
     compile 'org.xwalk:xwalk_core_library:17.46.448.10'
     compile files('libs/tbs_sdk_v1.5.1.1057_25436_obfs_20160331_144900.jar')
+    compile files('libs/tbs_sdk_v1.5.1.1057_25436_obfs_20160331_144900-4fe81e9999d74fb4cc9a09387e29f723.jar')
+    compile files('libs/tbs_sdk_v1.5.1.1057_25436_obfs_20160331_144900-bd165d20f7092cd37466f079a84bb3c0.jar')
+    compile files('libs/tbs_sdk_v1.5.1.1052_25436_obfs_20160317_144408-c3b91e7d8b77384ff8960bef45a9b944.jar')
+    compile files('libs/tbs_sdk_v1.5.1.1052_25436_obfs_20160317_144408-bb1099e7c17232d58afe930173a17410.jar')
+    compile files('libs/tbs_sdk_v1.5.1.1051_25436_obfs_20160316_130351-8cafe0c29a1571b57266442c7f8310d2.jar')
+    compile files('libs/tbs_sdk_v1.5.1.1048_25436_obfs_20160310_171150-11385e2205afd32ffbf8a518acfefc66.jar')
+    compile files('libs/tbs_sdk_v1.5.1.1047_25436_obfs_20160303_165058-866111faee3de656d25676c81d5f2fd0.jar')
+    compile files('libs/appcompat_v7-e78e378e5c91933be6ecdcd158f3dfb9.jar')
+    compile files('libs/android-support-v7-appcompat-f2d55087cf071045b12270e73a0f44c8.jar')
+    compile files('libs/android-support-v4-fef0781a2e861a9b4a7e30eb15077ae0.jar')
 }

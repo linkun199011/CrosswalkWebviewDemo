@@ -35,6 +35,20 @@
         console.log("showAndroidToast method");
         myInterfaceName.showToast(toast);//注意此处的myInterfaceName要和外部传入的名字一致，大小写正确
     }
+
+</script>
+    <script type="text/javascript">
+    var start_time = new Date();
+    var end_time = "" ;
+    var t = setInterval(function(){
+        if(document.readyState=="complete"){aa();}
+    },500)
+
+    function aa(){
+        end_time = new Date();
+        alert(end_time.getTime() -  start_time.getTime() +"毫秒" );
+        clearInterval(t);
+    }
 </script>
 </head>
 <body bgcolor="yellow">

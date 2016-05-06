@@ -3,6 +3,7 @@ package com.example.crosswalkdemo;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -58,7 +59,9 @@ public class AndroidWebViewActivity extends Activity {
                 // 出错
             }
         });
+        mWebView.setWebChromeClient(new WebChromeClient() {
 
+        });
         mWebView.loadUrl(mUrl);
     }
 

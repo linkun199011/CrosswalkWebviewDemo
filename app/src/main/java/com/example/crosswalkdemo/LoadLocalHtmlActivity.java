@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -58,6 +60,16 @@ public class LoadLocalHtmlActivity extends Activity {
                                         String description, String failingUrl) {
                 // 出错
             }
+        });
+        mWebView.setWebChromeClient(new WebChromeClient() {
+
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message,
+                                     JsResult result) {
+                // TODO Auto-generated method stub
+                return super.onJsAlert(view, url, message, result);
+            }
+
         });
 
 
