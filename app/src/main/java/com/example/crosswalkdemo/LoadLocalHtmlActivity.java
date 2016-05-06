@@ -61,6 +61,7 @@ public class LoadLocalHtmlActivity extends Activity {
                 // 出错
             }
         });
+<<<<<<< HEAD
         mWebView.setWebChromeClient(new WebChromeClient() {
 
             @Override
@@ -71,6 +72,8 @@ public class LoadLocalHtmlActivity extends Activity {
             }
 
         });
+=======
+>>>>>>> 7cd334dc590d74aebdb60525f4f7cafc7d79118a
 
 
         mWebView.loadUrl("file:///android_asset/youku.html");
